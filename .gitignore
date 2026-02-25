@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Model weights (download on demand)
+*.pt
+*.onnx
+
+# Uploads (user videos)
+uploads/*.mp4
+
+# Logs
+*.log
+
+# macOS
+.DS_Store

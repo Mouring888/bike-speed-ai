@@ -16,3 +16,6 @@ uploads/*.mp4
 
 # macOS
 .DS_Store
+
+# agent harness state
+.harness/

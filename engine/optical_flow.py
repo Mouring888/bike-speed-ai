@@ -56,8 +56,9 @@ class OpticalFlowSpeedCalculator:
             self._init_points(gray_frame, bike_bbox)
             return 0.0
 
-        good_old = self.prev_points[status.flatten() == 1]
-        good_new = new_points[status.flatten() == 1]
+        # points are shaped (N,1,2) — flatten to (M,2) so the norm below is per point
+        good_old = self.prev_points[status.flatten() == 1].reshape(-1, 2)
+        good_new = new_points[status.flatten() == 1].reshape(-1, 2)
 
         if len(good_old) == 0:
             self._init_points(gray_frame, bike_bbox)

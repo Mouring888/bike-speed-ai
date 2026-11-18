@@ -54,3 +54,15 @@ def test_spike_filter():
     speed = calc.update(f2, bike_bbox=None)
     # ถ้า displacement เกิน max → return 0.0
     assert speed >= 0.0
+
+
+def test_diagonal_shift_reports_euclidean_displacement():
+    """Regression: norm must be per point (dx=4, dy=3 → 5 px), not a median over axes."""
+    import cv2
+    rng = np.random.default_rng(0)
+    tex = (rng.random((60, 100)) * 255).astype(np.uint8)
+    tex = cv2.resize(tex, (800, 480), interpolation=cv2.INTER_CUBIC)
+    calc = OpticalFlowSpeedCalculator()
+    calc.update(tex[0:360, 0:640].copy(), None)
+    disp = calc.update(tex[3:363, 4:644].copy(), None)
+    assert abs(disp - 5.0) < 0.5

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bike Speed AI</title>
+<meta name="description" content="Measure cycling speed from drone footage, no sensors needed. Burn a broadcast-style speed graphic into your video and export the data as CSV.">
+<style>
+  :root {
+    --bg: #0f1113; --surface: #181b1e; --text: #f2f2f0; --muted: #a3a6a8;
+    --accent: #ffc800; --line: #2a2e32;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #fafaf8; --surface: #ffffff; --text: #16181a; --muted: #5d6166;
+      --accent: #c78f00; --line: #e4e4e0;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 17px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 72px 0 40px; }
+  .eyebrow { color: var(--accent); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; }
+  h1 { font-size: clamp(34px, 6vw, 58px); line-height: 1.05; margin: 12px 0 18px; letter-spacing: -.02em; }
+  .lede { color: var(--muted); font-size: 19px; max-width: 620px; }
+  .demo { margin: 36px 0 0; aspect-ratio: 16/9; background: var(--surface); border: 1px solid var(--line);
+          border-radius: 10px; display: grid; place-items: center; color: var(--muted); overflow: hidden; }
+  .demo video { width: 100%; height: 100%; object-fit: cover; }
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 28px; margin: 0 0 24px; letter-spacing: -.01em; }
+  .steps, .plans { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 24px; }
+  .card h3 { margin: 0 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); }
+  .num { color: var(--accent); font-weight: 700; font-size: 14px; }
+  .price { font-size: 36px; font-weight: 700; margin: 10px 0 4px; }
+  .price small { font-size: 15px; color: var(--muted); font-weight: 400; }
+  .card ul { padding-left: 18px; color: var(--muted); margin: 14px 0 20px; }
+  .btn { display: inline-block; background: var(--accent); color: #111; text-decoration: none;
+         font-weight: 600; padding: 11px 20px; border-radius: 8px; }
+  .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  .featured { border-color: var(--accent); }
+  footer { padding: 40px 0 60px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Computer vision for cycling content</div>
+    <h1>Rider speed, straight from your drone footage.</h1>
+    <p class="lede">No sensors, no timing mats. Drop in a top-down follow-cam clip and get back the same
+      video with a broadcast-style speed graphic, plus per-frame speed data for your edit or graphics system.</p>
+    <div class="demo">
+      <!-- Replace with the real demo clip: <video src="demo.mp4" autoplay muted loop playsinline></video> -->
+      <span>Demo clip coming soon</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="card"><div class="num">01</div><h3>Load your clip</h3><p>Any top-down drone video where the camera follows the rider.</p></div>
+      <div class="card"><div class="num">02</div><h3>Calibrate once</h3><p>Mark two points on the ground and enter the real distance between them, such as lane markings.</p></div>
+      <div class="card"><div class="num">03</div><h3>Export</h3><p>MP4 with the speed graphic burned in, plus a CSV of speed over time. km/h or mph.</p></div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>Pricing</h2>
+    <div class="plans">
+      <div class="card">
+        <h3>Creator</h3>
+        <div class="price">$49 <small>one-time</small></div>
+        <ul><li>Unlimited renders on your machine</li><li>MP4 + CSV export</li><li>Personal &amp; channel use</li></ul>
+        <a class="btn" href="#CHECKOUT_CREATOR">Buy Creator</a>
+      </div>
+      <div class="card featured">
+        <h3>Event</h3>
+        <div class="price">$1,500 <small>per event</small></div>
+        <ul><li>Commercial broadcast rights</li><li>Your colours on the graphic</li><li>Help with calibration on the day</li></ul>
+        <a class="btn" href="#CHECKOUT_EVENT">Book an event</a>
+      </div>
+      <div class="card">
+        <h3>Season</h3>
+        <div class="price">$4,000 <small>per season</small></div>
+        <ul><li>Every event in the season</li><li>White-label graphic + logo</li><li>Data feed for your graphics system</li></ul>
+        <a class="btn ghost" href="#CHECKOUT_SEASON">Talk to us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Payments and tax handled by Lemon Squeezy (merchant of record). Questions: <a href="mailto:CONTACT_EMAIL" style="color:inherit">CONTACT_EMAIL</a>
+  </footer>
+</div>
+</body>
+</html>
